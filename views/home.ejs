@@ -36,11 +36,50 @@
         <h4>Ticketac</h4>
       </div>
       <div class="nav-links">
-        <a class="active-link" href="/">Connection </a>
+        <a href="/">Logout </a>
+        <a href="/">Home </a>
         <a href="/">My last trips </a>
       </div>
     </nav>
-    <main class="main-content"></main>
+    <main class="main-content">
+      <div class="home-form-section">
+        <h4 class="title home-title">One-way ticket:</h4>
+
+        <form class="home-form" action="/sign-in" method="post">
+          <input
+            name="start"
+            required
+            type="text"
+            class="form-input"
+            placeholder="From: Paris, Marseille.."
+          />
+
+          <input
+            name="destination"
+            required
+            type="text"
+            class="form-input"
+            placeholder="To: Lille, Nantes.."
+          />
+
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-11-20"
+            min="2018-11-20"
+            max="2018-11-24"
+            placeholder="dd-mm-yyyy"
+            required
+            data-date=""
+            data-date-format="DD MMMM YYYY"
+          />
+          <button type="submit" class="btn btn-home">Go</button>
+        </form>
+
+        <img src="images/landmark.png" class="img-home" alt="cities logo" />
+      </div>
+    </main>
 
     <!-- JQUERY  -->
     <script src="vendor/jquery/jquery.min.js"></script>
