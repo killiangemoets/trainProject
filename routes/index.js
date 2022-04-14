@@ -1,42 +1,13 @@
 var express = require("express");
 var router = express.Router();
 var journeyModel = require("../models/journey");
+var userModel = require("../models/user")
 const mongoose = require("mongoose");
 
 // useNewUrlParser ;)
-var options = {
-  connectTimeoutMS: 5000,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
 
-// --------------------- BDD -----------------------------------------------------
 
-const password = "El7mQWrLv3gIiiws";
-mongoose.connect(
-  `mongodb+srv://admin:${password}@cluster0.fvcy8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
-  options,
-  function (err) {
-    if (err) {
-      console.log(
-        `error, failed to connect to the database because --> ${err}`
-      );
-    } else {
-      console.info("*** Database Ticketac connection : Success ***");
-    }
-  }
-);
 
-// BELLOW comment content TO DELETE ! CONTENT ADDED IN models/journey.JS
-
-// var journeySchema = mongoose.Schema({
-//   departure: String,
-//   arrival: String,
-//   date: Date,
-//   departureTime: String,
-//   price: Number,
-// });
-// var journeyModel = mongoose.model('journey', journeySchema);
 
 var city = [
   "Paris",
@@ -122,6 +93,41 @@ router.get('/notrain', function(req, res, next) {
   res.render('notrain', { title: 'Express' });
 
 });
+
+
+
+router.post('/sign-up', async function (req, res, next)  {
+  
+    var newUser = new userModel ({
+    name: req.body.name,
+    firstname: req.body.firstname,
+    email: req.body.email,
+    password: req.body.password , 
+  })
+
+   await newUser.save()
+
+  res.redirect('/')
+  
+});
+
+router.post('/sign-in', async function (req, res, next) {
+  var userList = await userModel.findOne({
+    email: req.body.emailLogin
+  })
+  // for (var i=0; i < userList.length; i++) {
+    if (userList && req.body.passwordLogin == userList.password){
+      req.session.user = {
+        name : userList.username,
+        id : userList.id
+      };
+          res.redirect('/home')
+      } else {
+      res.redirect('/')  
+      }
+    // }
+  })
+
 
 
 module.exports = router;
