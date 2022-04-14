@@ -34,25 +34,45 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/home", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   res.render("home");
-});
+}});
 
 router.get("/results", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   res.render("results");
-});
+}});
+
 router.get("/tickets", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   res.render("tickets");
-});
+}});
+
 router.get("/lasttrips", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   res.render("lasttrips");
-});
+}});
 
 router.get("/confirmation", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   res.render("confirmation");
-});
+}});
 
 // Remplissage de la base de donnée, une fois suffit
 router.get("/save", async function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   // How many journeys we want
   var count = 300;
 
@@ -74,11 +94,14 @@ router.get("/save", async function (req, res, next) {
     }
   }
   res.render("index", { title: "Express" });
-});
+}});
 
 // Cette route est juste une verification du Save.
 // Vous pouvez choisir de la garder ou la supprimer.
 router.get("/result", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   // Permet de savoir combien de trajets il y a par ville en base
   for (i = 0; i < city.length; i++) {
     journeyModel.find(
@@ -93,47 +116,61 @@ router.get("/result", function (req, res, next) {
     );
   }
   res.render("index", { title: "Express" });
-});
+}});
 
 router.get("/notrain", function (req, res, next) {
+  if(req.session.user == null ) {
+    res.redirect('/')
+  } else {
   res.render("notrain", { title: "Express" });
-});
+}});
 
 
 
 
-router.post('/sign-up', async function (req, res, next)  {
-  
-    var newUser = new userModel ({
-    name: req.body.name,
-    firstname: req.body.firstname,
-    email: req.body.email,
-    password: req.body.password , 
-  })
+// router.post('/sign-up', async function (req, res, next)  {
+//   var userList = await userModel.findOne({email: req.body.email})
+//   if(!userList) {
+//       var newUser = new userModel ({
+//       name: req.body.name,
+//       firstname: req.body.firstname,
+//       email: req.body.email,
+//       password: req.body.password , 
+//     })
+//       req.session.user = {
+//         name: req.session.username,
+//         id: req.session.id
+//       };
+//     await newUser.save()
+//     res.redirect('/home')
+//   } else {
+//     res.redirect('/')
+//   }
+// });
 
-   await newUser.save()
+// router.post('/sign-in', async function (req, res, next) {
+//   var userList = await userModel.findOne({
+//     email: req.body.emailLogin
+//   })
+ 
+//     if (userList && req.body.passwordLogin == userList.password){
+//       req.session.user = {
+//         name : userList.username,
+//         id : userList._id
+//       };
+//           res.redirect('/home')
 
-  res.redirect('/')
-  
-});
+//       } else {
+//       res.redirect('/')  
+//     }
+   
+// })
 
-router.post('/sign-in', async function (req, res, next) {
-  var userList = await userModel.findOne({
-    email: req.body.emailLogin
-  })
-  // for (var i=0; i < userList.length; i++) {
-    if (userList && req.body.passwordLogin == userList.password){
-      req.session.user = {
-        name : userList.username,
-        id : userList.id
-      };
-          res.redirect('/home')
-      } else {
-      res.redirect('/')  
-      }
-    // }
-  })
-
+  router.get('/logout', async function (req, res, next) {
+    req.session.user = null;
+      res.redirect('/');
+    });
+    
 
 
 
