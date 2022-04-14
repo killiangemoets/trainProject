@@ -57,9 +57,11 @@ var date = [
 ];
 
 /* GET home page. */
+
 router.get("/", function (req, res, next) {
   res.render("index");
 });
+
 
 router.get("/home", function (req, res, next) {
   res.render("home");
@@ -115,5 +117,11 @@ router.get("/result", function (req, res, next) {
   }
   res.render("index", { title: "Express" });
 });
+
+router.get('/notrain', function(req, res, next) {
+  res.render('notrain', { title: 'Express' });
+
+});
+
 
 module.exports = router;

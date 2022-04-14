@@ -8,7 +8,9 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #333;
+
   background-image: linear-gradient(to bottom, #a2dbfa, #39a2db);
+
 }
 
 html {
@@ -39,6 +41,7 @@ nav {
   justify-content: space-between;
   padding: 2rem 1.6rem;
   background-color: #eee;
+  height:10vh
 }
 
 * {
@@ -49,13 +52,32 @@ nav {
 
 /* CLASSES */
 
+
 .forms {
   display: flex;
   gap: 8rem;
 }
 
-.main-content {
-  height: 90vh;
+
+.btn{
+  background-color: rgb(218, 0, 0);
+  color:#fff;
+  border: none;
+  /* border-color: #fff; */
+  padding: 1.2rem;
+  border-radius: 15%;
+  font-size:2rem
+}
+
+.btn:hover{
+  background-color: #eee;
+  color:rgb(218, 0, 0);
+  cursor: grab
+}
+
+
+.main-content{
+  height:90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,10 +96,12 @@ nav {
   color: #333;
 }
 
+
 .nav-links a:hover,
 .active-link {
   color: rgb(228, 0, 0) !important;
 }
+
 
 .nav-logo {
   display: flex;
@@ -89,6 +113,7 @@ nav {
 .nav-logo h4 {
   font-size: 1.8rem;
 }
+
 
 .sign-up-form-section,
 .sign-in-form-section {
@@ -111,9 +136,21 @@ nav {
   font-weight: 500;
 }
 
+
 /* ID  */
 
-#train-logo {
+#no-train{
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+
+}
+
+#no-train a{
+  color: red
+}
+
+#train-logo{
   width: 4rem;
   height: 4rem;
 }
