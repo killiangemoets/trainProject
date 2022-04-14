@@ -1,8 +1,77 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+
+/* TAG ELEMENTS */
 
 a {
   color: #00B7FF;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: #333;
+  height : 100vh;
+  background-image: linear-gradient(to bottom, #A2DBFA, #39A2DB);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1.6rem;
+  background-color: #eee;
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/* CLASSES */
+
+
+.main-content{
+  
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 2rem
+}
+
+.nav-links a{
+ text-decoration: none;
+ font-size: 1.8rem;
+ font-weight: 500;
+ color: #333
+}
+
+.nav-links a:hover, .active-link{
+  color: rgb(228, 0, 0) !important
+ }
+
+.nav-logo{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ gap: 2rem
+}
+
+.nav-logo h4{
+  font-size: 1.8rem;
+}
+
+
+/* ID  */
+
+#train-logo{
+  width: 4rem;
+  height: 4rem;
 }

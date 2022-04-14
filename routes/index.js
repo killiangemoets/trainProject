@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var journeyModel = require('../models/journey');
 const mongoose = require('mongoose');
 
 // useNewUrlParser ;)
@@ -11,7 +11,8 @@ var options = {
  };
 
 // --------------------- BDD -----------------------------------------------------
-mongoose.connect('mongodb+srv://XXXXXXXX:*********@XXXXXXXX-0hsfc.mongodb.net/Ticketac?retryWrites=true',
+const password = "El7mQWrLv3gIiiws";
+mongoose.connect(`mongodb+srv://admin:${password}@cluster0.fvcy8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
    options,
    function(err) {
     if (err) {
@@ -22,15 +23,16 @@ mongoose.connect('mongodb+srv://XXXXXXXX:*********@XXXXXXXX-0hsfc.mongodb.net/Ti
    }
 );
 
-var journeySchema = mongoose.Schema({
-  departure: String,
-  arrival: String,
-  date: Date,
-  departureTime: String,
-  price: Number,
-});
+// BELLOW comment content TO DELETE ! CONTENT ADDED IN models/journey.JS
 
-var journeyModel = mongoose.model('journey', journeySchema);
+// var journeySchema = mongoose.Schema({
+//   departure: String,
+//   arrival: String,
+//   date: Date,
+//   departureTime: String,
+//   price: Number,
+// });
+// var journeyModel = mongoose.model('journey', journeySchema);
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -39,7 +41,7 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('models', { title: 'Express' });
 });
 
 
@@ -91,8 +93,6 @@ router.get('/result', function(req, res, next) {
     )
 
   }
-
-
   res.render('index', { title: 'Express' });
 });
 
