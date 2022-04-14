@@ -1,16 +1,11 @@
 /* TAG ELEMENTS */
 
-a {
-  color: #00b7ff;
-}
-
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #333;
 
   background-image: linear-gradient(to bottom, #a2dbfa, #39a2db);
-
 }
 
 html {
@@ -19,7 +14,7 @@ html {
 
 input {
   display: block;
-  width: 32rem;
+  /* width: 32rem; */
   padding: 0.8rem 1.2rem;
   font-size: 1.8rem;
 
@@ -41,7 +36,7 @@ nav {
   justify-content: space-between;
   padding: 2rem 1.6rem;
   background-color: #eee;
-  height:10vh
+  height: 10vh;
 }
 
 * {
@@ -52,32 +47,36 @@ nav {
 
 /* CLASSES */
 
-
 .forms {
   display: flex;
   gap: 8rem;
 }
 
-
-.btn{
+.btn,
+.btn:link,
+.btn:visited {
   background-color: rgb(218, 0, 0);
-  color:#fff;
+  color: #fff;
   border: none;
-  /* border-color: #fff; */
-  padding: 1.2rem;
-  border-radius: 15%;
-  font-size:2rem
+  padding: 1.2rem 1.6rem;
+  border-radius: 8px;
+  font-size: 2rem;
+  transition: all 0.3s;
 }
 
-.btn:hover{
+.btn:hover,
+.btn:active {
   background-color: #eee;
-  color:rgb(218, 0, 0);
-  cursor: grab
+  color: rgb(218, 0, 0);
+  cursor: pointer;
 }
 
+.btn-confirm {
+  width: 10rem;
+}
 
-.main-content{
-  height:90vh;
+.main-content {
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,14 +93,13 @@ nav {
   font-size: 1.8rem;
   font-weight: 500;
   color: #333;
+  transition: all 0.3s;
 }
-
 
 .nav-links a:hover,
 .active-link {
   color: rgb(228, 0, 0) !important;
 }
-
 
 .nav-logo {
   display: flex;
@@ -113,7 +111,6 @@ nav {
 .nav-logo h4 {
   font-size: 1.8rem;
 }
-
 
 .sign-up-form-section,
 .sign-in-form-section {
@@ -127,6 +124,7 @@ nav {
 .sign-in-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 2.5rem;
 }
 
@@ -136,21 +134,131 @@ nav {
   font-weight: 500;
 }
 
-
 /* ID  */
 
-#no-train{
- display: flex;
- align-items: center;
- flex-direction: column;
-
+#no-train {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-#no-train a{
-  color: red
+#no-train a {
+  color: red;
 }
 
-#train-logo{
+#train-logo {
   width: 4rem;
   height: 4rem;
+}
+
+/* -------------------------------------------------- */
+/*-------------------- HOME --------------------------*/
+/* -------------------------------------------------- */
+
+.home-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+.home-title {
+  align-self: flex-start;
+}
+
+.home-form {
+  padding: 0 8rem;
+  display: flex;
+  gap: 3.2rem;
+}
+
+.btn-home {
+  margin-left: 2rem;
+}
+
+.img-home {
+  margin-top: 4rem;
+  width: 20rem;
+  height: 20rem;
+}
+
+/* -------------------------------------------------- */
+/*-------------------- RESULTS -----------------------*/
+/* -------------------------------------------------- */
+
+.results-section {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 36%;
+}
+
+.results-title {
+  margin-left: 3rem;
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.result-title h4 {
+  font-size: 1.8rem;
+}
+
+.departure {
+  font-size: 1.4rem;
+}
+.price {
+  font-size: 1.8rem;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 2rem;
+}
+.results-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn-result {
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  font-size: 1.6rem;
+}
+
+/* -------------------------------------------------- */
+/*-------------------- MY TICKETS---------------------*/
+/* -------------------------------------------------- */
+
+.tickets-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 58%;
+}
+
+.tickets-title {
+  margin-bottom: 2rem;
+  margin-left: 3.2rem;
+}
+
+.table {
+  font-size: 1.8rem;
+}
+
+.btn-section {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 3rem;
 }
