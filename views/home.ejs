@@ -37,17 +37,17 @@
       </div>
       <div class="nav-links">
         <a href="/">Logout </a>
-        <a href="/">Home </a>
-        <a href="/">My last trips </a>
+        <a href="/home">Home </a>
+        <a href="/lasttrips">My last trips</a>
       </div>
     </nav>
     <main class="main-content">
       <div class="home-form-section">
         <h4 class="title home-title">One-way ticket:</h4>
 
-        <form class="home-form" action="/sign-in" method="post">
+        <form class="home-form" action="/results" method="post">
           <input
-            name="start"
+            name="departure"
             required
             type="text"
             class="form-input"
@@ -55,7 +55,7 @@
           />
 
           <input
-            name="destination"
+            name="arrival"
             required
             type="text"
             class="form-input"
@@ -65,7 +65,7 @@
           <input
             type="date"
             id="start"
-            name="trip-start"
+            name="date"
             value="2018-11-20"
             min="2018-11-20"
             max="2018-11-24"

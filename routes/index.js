@@ -1,13 +1,10 @@
 var express = require("express");
 var router = express.Router();
 var journeyModel = require("../models/journey");
-var userModel = require("../models/user")
+var userModel = require("../models/user");
 const mongoose = require("mongoose");
 
 // useNewUrlParser ;)
-
-
-
 
 var city = [
   "Paris",
@@ -37,9 +34,6 @@ router.get("/home", function (req, res, next) {
   res.render("home");
 });
 
-router.get("/results", function (req, res, next) {
-  res.render("results");
-});
 router.get("/tickets", function (req, res, next) {
   res.render("tickets");
 });
@@ -96,45 +90,55 @@ router.get("/result", function (req, res, next) {
 });
 
 router.get("/notrain", function (req, res, next) {
-  res.render("notrain", { title: "Express" });
+  res.render("notrain");
 });
 
-
-
-
-router.post('/sign-up', async function (req, res, next)  {
-  
-    var newUser = new userModel ({
+router.post("/sign-up", async function (req, res, next) {
+  var newUser = new userModel({
     name: req.body.name,
     firstname: req.body.firstname,
     email: req.body.email,
-    password: req.body.password , 
-  })
+    password: req.body.password,
+  });
 
-   await newUser.save()
+  await newUser.save();
 
-  res.redirect('/')
-  
+  res.redirect("/");
 });
 
-router.post('/sign-in', async function (req, res, next) {
+router.post("/sign-in", async function (req, res, next) {
   var userList = await userModel.findOne({
-    email: req.body.emailLogin
-  })
+    email: req.body.emailLogin,
+  });
   // for (var i=0; i < userList.length; i++) {
-    if (userList && req.body.passwordLogin == userList.password){
-      req.session.user = {
-        name : userList.username,
-        id : userList.id
-      };
-          res.redirect('/home')
-      } else {
-      res.redirect('/')  
-      }
-    // }
-  })
+  if (userList && req.body.passwordLogin == userList.password) {
+    req.session.user = {
+      name: userList.username,
+      id: userList.id,
+    };
+    res.redirect("/home");
+  } else {
+    res.redirect("/");
+  }
+  // }
+});
 
+// Search for a train
+// router.get("/results", function (req, res, next) {
+//   res.render("results");
+// });
+router.post("/results", async function (req, res, next) {
+  const date = new Date(req.body.date);
 
+  req.session.results = await journeyModel.find({
+    departure: req.body.departure,
+    arrival: req.body.arrival,
+    date,
+  });
 
+  if (req.session.results.length == 0) return res.redirect("/notrain");
+
+  res.render("results", { results: req.session.results });
+});
 
 module.exports = router;
