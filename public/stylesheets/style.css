@@ -1,22 +1,41 @@
-
 /* TAG ELEMENTS */
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #333;
-  background-image: linear-gradient(to bottom, #A2DBFA, #39A2DB);
+
+  background-image: linear-gradient(to bottom, #a2dbfa, #39a2db);
+
 }
 
 html {
   font-size: 62.5%;
 }
 
+input {
+  display: block;
+  width: 32rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.8rem;
+
+  border: none;
+  border-radius: 4px;
+}
+input ::placeholder {
+  color: #999;
+}
+
+input:focus {
+  outline: none;
+}
+
 nav {
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,8 +50,14 @@ nav {
   box-sizing: border-box;
 }
 
-
 /* CLASSES */
+
+
+.forms {
+  display: flex;
+  gap: 8rem;
+}
+
 
 .btn{
   background-color: rgb(218, 0, 0);
@@ -58,39 +83,57 @@ nav {
   justify-content: center;
 }
 
-.nav-links{
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem
+  gap: 2rem;
 }
 
-.nav-links a{
- text-decoration: none;
- font-size: 1.8rem;
- font-weight: 500;
- color: #333
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #333;
 }
 
-.nav-links a:hover, .active-link{
-  color: rgb(218, 0, 0) !important
- }
 
-.nav-logo{
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 2rem
+.nav-links a:hover,
+.active-link {
+  color: rgb(228, 0, 0) !important;
 }
 
-.nav-logo h4{
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-logo h4 {
   font-size: 1.8rem;
 }
 
-.title{
+
+.sign-up-form-section,
+.sign-in-form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.sign-up-form,
+.sign-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.title {
   font-size: 3rem;
+  color: #fff;
   font-weight: 500;
-  color: #fff;  
-  margin-bottom: 1.5rem;
 }
 
 
