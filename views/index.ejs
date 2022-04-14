@@ -43,7 +43,7 @@
       <div class="forms">
         <!-- SIGN IN AREA -->
         <div class="sign-in-form-section">
-          <h4 class="title">Sign-in:</h4>
+          <h4 class="title">Sign In:</h4>
           <form class="sign-in-form" action="/users/sign-in" method="post">
             <input
               name="emailLogin"
@@ -66,16 +66,16 @@
 
           <form class="sign-up-form" action="/users/sign-up" method="post">
             <input
+            name="firstname"
+            type="firstname"
+            class="form-input"
+            placeholder="FirstName"
+            />
+            <input
               name="name"
               type="name"
               class="form-input"
-              placeholder="last name"
-            />
-            <input
-              name="firstname"
-              type="firstname"
-              class="form-input"
-              placeholder="FirstName"
+              placeholder="lastName"
             />
             <input
               name="email"
