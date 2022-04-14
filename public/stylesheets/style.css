@@ -9,7 +9,6 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   color: #333;
-  height : 100vh;
   background-image: linear-gradient(to bottom, #A2DBFA, #39A2DB);
 }
 
@@ -23,8 +22,8 @@ nav {
   justify-content: space-between;
   padding: 2rem 1.6rem;
   background-color: #eee;
+  height:10vh
 }
-
 
 * {
   padding: 0;
@@ -35,9 +34,28 @@ nav {
 
 /* CLASSES */
 
+.btn{
+  background-color: rgb(218, 0, 0);
+  color:#fff;
+  border: none;
+  /* border-color: #fff; */
+  padding: 1.2rem;
+  border-radius: 15%;
+  font-size:2rem
+}
+
+.btn:hover{
+  background-color: #eee;
+  color:rgb(218, 0, 0);
+  cursor: grab
+}
+
 
 .main-content{
-  
+  height:90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-links{
@@ -54,7 +72,7 @@ nav {
 }
 
 .nav-links a:hover, .active-link{
-  color: rgb(228, 0, 0) !important
+  color: rgb(218, 0, 0) !important
  }
 
 .nav-logo{
@@ -68,8 +86,26 @@ nav {
   font-size: 1.8rem;
 }
 
+.title{
+  font-size: 3rem;
+  font-weight: 500;
+  color: #fff;  
+  margin-bottom: 1.5rem;
+}
+
 
 /* ID  */
+
+#no-train{
+ display: flex;
+ align-items: center;
+ flex-direction: column;
+
+}
+
+#no-train a{
+  color: red
+}
 
 #train-logo{
   width: 4rem;
