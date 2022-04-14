@@ -1,13 +1,10 @@
 var express = require("express");
 var router = express.Router();
 var journeyModel = require("../models/journey");
-var userModel = require("../models/user")
+var userModel = require("../models/user");
 const mongoose = require("mongoose");
 
 // useNewUrlParser ;)
-
-
-
 
 var city = [
   "Paris",
@@ -40,12 +37,13 @@ router.get("/home", function (req, res, next) {
   res.render("home");
 }});
 
-router.get("/results", function (req, res, next) {
-  if(req.session.user == null ) {
-    res.redirect('/')
-  } else {
-  res.render("results");
-}});
+
+// router.get("/results", function (req, res, next) {
+//   if(req.session.user == null ) {
+//     res.redirect('/')
+//   } else {
+//   res.render("results");
+// }});
 
 router.get("/tickets", function (req, res, next) {
   if(req.session.user == null ) {
@@ -122,56 +120,28 @@ router.get("/notrain", function (req, res, next) {
   if(req.session.user == null ) {
     res.redirect('/')
   } else {
-  res.render("notrain", { title: "Express" });
+  res.render("notrain");
 }});
 
 
+router.post("/results", async function (req, res, next) {
+  const date = new Date(req.body.date);
 
+  req.session.results = await journeyModel.find({
+    departure: req.body.departure,
+    arrival: req.body.arrival,
+    date,
+  });
 
-// router.post('/sign-up', async function (req, res, next)  {
-//   var userList = await userModel.findOne({email: req.body.email})
-//   if(!userList) {
-//       var newUser = new userModel ({
-//       name: req.body.name,
-//       firstname: req.body.firstname,
-//       email: req.body.email,
-//       password: req.body.password , 
-//     })
-//       req.session.user = {
-//         name: req.session.username,
-//         id: req.session.id
-//       };
-//     await newUser.save()
-//     res.redirect('/home')
-//   } else {
-//     res.redirect('/')
-//   }
-// });
+  if (req.session.results.length == 0) return res.redirect("/notrain");
 
-// router.post('/sign-in', async function (req, res, next) {
-//   var userList = await userModel.findOne({
-//     email: req.body.emailLogin
-//   })
- 
-//     if (userList && req.body.passwordLogin == userList.password){
-//       req.session.user = {
-//         name : userList.username,
-//         id : userList._id
-//       };
-//           res.redirect('/home')
+  res.render("results", { results: req.session.results });
+});
 
-//       } else {
-//       res.redirect('/')  
-//     }
-   
-// })
-
-  router.get('/logout', async function (req, res, next) {
+  
+router.get('/logout', async function (req, res, next) {
     req.session.user = null;
       res.redirect('/');
-    });
-    
-
-
+ });
 
 module.exports = router;

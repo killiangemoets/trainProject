@@ -1,11 +1,12 @@
 var express = require("express");
 var router = express.Router();
-var userModel = require('../models/user')
+var userModel = require("../models/user");
 const mongoose = require("mongoose");
 /* GET users listing. */
 // router.get('/', function(req, res, next) {
 //   res.send('index');
 // });
+
 
 router.post('/sign-up', async function (req, res, next)  {
     var userList = await userModel.findOne({email: req.body.email})
