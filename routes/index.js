@@ -62,7 +62,6 @@ router.get("/", function (req, res, next) {
   res.render("index");
 });
 
-
 router.get("/home", function (req, res, next) {
   res.render("home");
 });
@@ -72,6 +71,13 @@ router.get("/results", function (req, res, next) {
 });
 router.get("/tickets", function (req, res, next) {
   res.render("tickets");
+});
+router.get("/lasttrips", function (req, res, next) {
+  res.render("lasttrips");
+});
+
+router.get("/confirmation", function (req, res, next) {
+  res.render("confirmation");
 });
 
 // Remplissage de la base de donnée, une fois suffit
@@ -118,10 +124,8 @@ router.get("/result", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 
-router.get('/notrain', function(req, res, next) {
-  res.render('notrain', { title: 'Express' });
-
+router.get("/notrain", function (req, res, next) {
+  res.render("notrain", { title: "Express" });
 });
-
 
 module.exports = router;
