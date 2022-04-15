@@ -7,7 +7,6 @@ const mongoose = require("mongoose");
 //   res.send('index');
 // });
 
-
 router.post('/sign-up', async function (req, res, next)  {
     var userList = await userModel.findOne({email: req.body.email})
     if(!userList) {
@@ -30,7 +29,7 @@ router.post('/sign-up', async function (req, res, next)  {
       res.redirect('/')
     }
   });
-  
+
   router.post('/sign-in', async function (req, res, next) {
     var userList = await userModel.findOne({
       email: req.body.emailLogin
@@ -41,13 +40,10 @@ router.post('/sign-up', async function (req, res, next)  {
           id : userList._id
         };
             res.redirect('/home')
-  
+
         } else {
-        res.redirect('/')  
+        res.redirect('/')
         }
     })
-
-
-
 
 module.exports = router;

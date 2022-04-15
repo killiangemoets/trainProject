@@ -16,14 +16,14 @@
     />
 
     <!-- FONTAWESOME  -->
-    <link
-      href="vendor/fontawesome-free/css/all.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <script
+      src="https://kit.fontawesome.com/4901497cb9.js"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/queries.css" />
 
     <!-- FONTFAMILY -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -60,35 +60,34 @@
               <th scope="col">Date</th>
               <th scope="col">Departure Time</th>
               <th scope="col">Price</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
             <%
+            let totalPrice = 0;
             for(var i=0; i<tickets.length; i++){
               %>
             <tr>
               <th scope="row"><%= i+1 %></th>
               <td><%= tickets[i].departure %>/<%= tickets[i].arrival %></td>
-              <td></td>
+              <td><%= dateFormat(tickets[i].date) %></td>
               <td><%= tickets[i].departureTime %></td>
               <td><%= tickets[i].price %> €</td>
+              <td><a href="/delete?id=<%= tickets[i]._id %>"><i class="fa-solid fa-trash-can" id="trash"></i></a></td>
             </tr>
             <%
+            totalPrice += tickets[i].price;
           }
           %>
-            <!-- <tr>
-              <th scope="row">2</th>
-              <td>Paris/Bordeaux</td>
-              <td>02/08/2019</td>
-              <td>19:00 pm</td>
-              <td>125 €</td>
-            </tr> -->
+
             <tr class="table-danger">
               <th scope="row">Total</th>
               <td></td>
               <td></td>
               <td></td>
-              <td>218€</td>
+              <td><%= totalPrice %>€</td>
+              <td></td>
             </tr>
           </tbody>
         </table>

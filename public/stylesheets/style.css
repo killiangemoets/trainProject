@@ -36,7 +36,7 @@ nav {
   justify-content: space-between;
   padding: 2rem 1.6rem;
   background-color: #eee;
-  height: 10vh;
+  height: 7.5rem;
 }
 
 * {
@@ -76,7 +76,8 @@ nav {
 }
 
 .main-content {
-  height: 90vh;
+  padding: 4rem;
+  min-height: calc(100vh - 7.5rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +145,7 @@ nav {
 }
 
 #no-train a {
-  color: red;
+  color: rgb(228, 0, 0);
 }
 
 #train-logo {
@@ -192,7 +193,7 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  width: 36%;
+  width: 50rem;
 }
 
 .results-title {
@@ -261,4 +262,11 @@ nav {
   display: flex;
   justify-content: space-between;
   margin: 0 3rem;
+}
+
+#trash {
+  color: rgb(228, 0, 0);
+}
+#trash:hover {
+  color: #ddd;
 }

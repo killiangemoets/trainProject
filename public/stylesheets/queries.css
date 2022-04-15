@@ -1,0 +1,78 @@
+/* /!\ rem and em do NOT depend on html font-size in media queries! Instead, 1rem = 1em = 16px !!! */
+
+/**************************/
+/******* BELOW 1056px ******/
+/**************************/
+
+@media (max-width: 66em) {
+  .home-form {
+    padding: 0 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .home-form input,
+  .btn-home {
+    width: 24.4rem;
+    margin: 0;
+  }
+  .home-title {
+    align-self: center;
+  }
+
+  .table {
+    font-size: 1rem;
+  }
+}
+
+/**************************/
+/******* BELOW 608px ******/
+/**************************/
+
+@media (max-width: 38em) {
+  .forms {
+    flex-direction: column;
+    gap: 3.2rem;
+  }
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .nav-logo h4 {
+    font-size: 1.2rem;
+  }
+  .nav-logo {
+    gap: 1.2rem;
+  }
+
+  .table {
+    font-size: 0.6rem;
+  }
+}
+
+/**************************/
+/******* BELOW 544px ******/
+/**************************/
+
+@media (max-width: 34em) {
+  .results-title {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+  }
+  .result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 2rem;
+  }
+}
