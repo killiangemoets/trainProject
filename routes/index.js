@@ -27,6 +27,7 @@ var date = [
 /* GET home page. */
 
 router.get("/", function (req, res, next) {
+  req.session.user = null;
   res.render("index");
 });
 
