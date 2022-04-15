@@ -101,22 +101,6 @@ router.get("/tickets", async function (req, res, next) {
     res.render("tickets", { tickets: req.session.tickets })
 });
 
-router.get("/lasttrips", function (req, res, next) {
-  if (req.session.user == null) {
-    res.redirect("/");
-  } else {
-    res.render("lasttrips");
-  }
-});
-
-router.get("/confirmation", function (req, res, next) {
-  if (req.session.user == null) {
-    res.redirect("/");
-  } else {
-    
-    res.render("confirmation");
-  }
-});
 
 router.get("/notrain", function (req, res, next) {
   if (req.session.user == null) {

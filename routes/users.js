@@ -11,17 +11,20 @@ const mongoose = require("mongoose");
 router.post('/sign-up', async function (req, res, next)  {
     var userList = await userModel.findOne({email: req.body.email})
     if(!userList) {
+      // CREATION
         var newUser = new userModel ({
         name: req.body.name,
         firstname: req.body.firstname,
         email: req.body.email,
         password: req.body.password , 
       })
-        req.session.user = {
-          name: req.session.username,
-          id: req.session.id
-        };
       await newUser.save()
+      // CONNECTION
+      var userList = await userModel.findOne({email: req.body.email})
+          req.session.user = {
+          name: userList.username,
+          id: userList.id
+        };
       res.redirect('/home')
     } else {
       res.redirect('/')
