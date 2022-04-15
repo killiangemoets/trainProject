@@ -106,7 +106,8 @@ router.get("/home", function (req, res, next) {
 router.get("/tickets", async function (req, res, next) {
   if (req.session.user == null) return res.redirect("/");
   if (!req.session?.tickets) req.session.tickets = [];
-  req.session.tickets.push(await journeyModel.findById(req.query.id));
+  if (req.query?.id)
+    req.session.tickets.push(await journeyModel.findById(req.query.id));
 
   res.render("tickets", { tickets: req.session.tickets });
 });
@@ -129,7 +130,6 @@ router.get("/delete", async function (req, res, next) {
   res.render("tickets", { tickets: req.session.tickets });
   // res.redirect("/tickets");
 });
-
 
 router.get("/notrain", function (req, res, next) {
   if (req.session.user == null) {
