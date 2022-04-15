@@ -63,20 +63,26 @@
             </tr>
           </thead>
           <tbody>
+            <%
+            for(var i=0; i<tickets.length; i++){
+              %>
             <tr>
-              <th scope="row">1</th>
-              <td>Paris/Lille</td>
-              <td>02/08/2019</td>
-              <td>15:00 pm</td>
-              <td>93 €</td>
+              <th scope="row"><%= i+1 %></th>
+              <td><%= tickets[i].departure %>/<%= tickets[i].arrival %></td>
+              <td></td>
+              <td><%= tickets[i].departureTime %></td>
+              <td><%= tickets[i].price %> €</td>
             </tr>
-            <tr>
+            <%
+          }
+          %>
+            <!-- <tr>
               <th scope="row">2</th>
               <td>Paris/Bordeaux</td>
               <td>02/08/2019</td>
               <td>19:00 pm</td>
               <td>125 €</td>
-            </tr>
+            </tr> -->
             <tr class="table-danger">
               <th scope="row">Total</th>
               <td></td>

@@ -54,7 +54,7 @@
           for(var i=0; i<results.length; i++){
             %>
           <div class="result">
-            <div class="result-title">
+            <div class="result-title" >
               <h4><%= results[i].departure %>/<%= results[i].arrival %></h4>
             </div>
             <div class="result-description">
@@ -62,7 +62,7 @@
             </div>
             <div class="results-price">
               <h2 class="price"><span><%= results[i].price %></span>€</h2>
-              <a href="/tickets"><button class="btn btn-result">OK</button></a>
+              <a href="/tickets?id=<%= results[i]._id%>"><button class="btn btn-result">OK</button></a>
             </div>
           </div>
           <%
@@ -109,3 +109,4 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
+
