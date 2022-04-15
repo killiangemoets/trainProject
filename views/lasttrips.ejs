@@ -62,18 +62,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>02/08/2019</td>
-              <td>Paris/Lille</td>
-              <td>15:00 pm</td>
-              <td>93 €</td>
-            </tr>
-            <tr>
-              <td>02/08/2019</td>
-              <td>Paris/Bordeaux</td>
-              <td>19:00 pm</td>
-              <td>125 €</td>
-            </tr>
+            <% for(var i=0;i < lastTrips.length; i++) { %>
+              <tr>
+                <td><%= lastTrips[i].date %></td>
+                <td><%= lastTrips[i].departure %> / <%= lastTrips[i].arrival %></td>
+                <td><%= lastTrips[i].departureTime %></td>
+                <td><%= lastTrips[i].price %> €</td>
+              </tr>
+              <% } %>
           </tbody>
         </table>
         <div class="btn-section">

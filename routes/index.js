@@ -130,21 +130,6 @@ router.get("/delete", async function (req, res, next) {
   // res.redirect("/tickets");
 });
 
-router.get("/lasttrips", function (req, res, next) {
-  if (req.session.user == null) {
-    res.redirect("/");
-  } else {
-    res.render("lasttrips");
-  }
-});
-
-router.get("/confirmation", function (req, res, next) {
-  if (req.session.user == null) {
-    res.redirect("/");
-  } else {
-    res.render("confirmation");
-  }
-});
 
 router.get("/notrain", function (req, res, next) {
   if (req.session.user == null) {
