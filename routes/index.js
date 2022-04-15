@@ -26,7 +26,6 @@ var date = [
 
 /* GET home page. */
 
-//////////////////////////////////////////////////////////////
 // Remplissage de la base de donnée, une fois suffit
 router.get("/save", async function (req, res, next) {
   if (req.session.user == null) {
@@ -95,18 +94,11 @@ router.get("/home", function (req, res, next) {
 });
 
 router.get("/tickets", async function (req, res, next) {
-  if (req.session.user == null) {
-    res.redirect("/");
-  } else {
-    console.log(req.query.id);
-    console.log(req.session.tickets);
-
+  if (req.session.user == null) return res.redirect("/"); 
     if (!req.session?.tickets) req.session.tickets = [];
     req.session.tickets.push(await journeyModel.findById(req.query.id));
 
-    console.log(req.session.tickets);
-    res.render("tickets", { tickets: req.session.tickets });
-  }
+    res.render("tickets", { tickets: req.session.tickets })
 });
 
 router.get("/lasttrips", function (req, res, next) {
@@ -121,6 +113,7 @@ router.get("/confirmation", function (req, res, next) {
   if (req.session.user == null) {
     res.redirect("/");
   } else {
+    
     res.render("confirmation");
   }
 });
@@ -134,6 +127,8 @@ router.get("/notrain", function (req, res, next) {
 });
 
 router.post("/results", async function (req, res, next) {
+
+  // On fait ca pour la convertir en date car de base c'est un string
   const date = new Date(req.body.date);
 
   req.session.results = await journeyModel.find({
