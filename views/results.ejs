@@ -19,6 +19,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/queries.css" />
 
     <!-- FONTFAMILY -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,7 +63,7 @@
             </div>
             <div class="results-price">
               <h2 class="price"><span><%= results[i].price %></span>€</h2>
-              <a href="/tickets?id=<%= results[i]._id%>"><button class="btn btn-result">OK</button></a>
+              <a href="/tickets?id=<%= results[i]._id%>"><button class="btn btn-result">Buy</button></a>
             </div>
           </div>
           <%
